@@ -2,7 +2,7 @@ import Banner from "../../shared/Banner/Banner"
 import Footer from "../../shared/Footer/Footer"
 import Header from "../../shared/Header/Header"
 import { aboutBanner } from "../../../utils/static/bannerData"
-import { useState } from "react"
+import { use, useEffect, useState } from "react"
 import { aboutFrame } from "../../../utils/static/frameData"
 import Frame from "../../shared/Frame/Frame"
 import FixedBg from "../../shared/FixedBg/FixedBg"
@@ -17,6 +17,7 @@ import ChooseUs from "../../shared/ChooseUs/ChooseUs"
 const AboutUs = () => {
 
   const [headerHeight, setHeaderHeight] = useState(0)
+  const [isMobile, setIsMobile] = useState(false)
 
   const data = [
     {
@@ -37,6 +38,10 @@ const AboutUs = () => {
     }
   ]
 
+  useEffect(()=>{
+    window.innerWidth > 767 ? setIsMobile(false) : setIsMobile(true)
+  },[])
+
   const object = {...aboutFrame, imageHeight : window.innerWidth > 767 ? aboutFrame.imageHeight : 'auto'}
 
 
@@ -55,11 +60,11 @@ const AboutUs = () => {
         <TwoSidedSection header={"Leadership & Expertise"} description={"Behind Storeys Real Estate is a team of industry veterans and market specialists who bring years of experience, deep local knowledge, and a forward-thinking approach to real estate. Our leadership is committed to staying ahead of market trends, utilizing cutting-edge technology and data-driven insights to empower our clients."} image={"/assets/img/custom-banner.svg"} />
 
         {/* <Awards awards={aboutAwards} /> */}
-        <TwoSidedSection image={"/assets/img/vision-values.svg"} height={window.innerWidth > 767 ? 650 : 'auto'} Component={<VisionComp />} />
+        <TwoSidedSection image={"/assets/img/vision-values.svg"} height={isMobile ? 600: 'auto'} Component={<VisionComp />} />
 
         <ChooseUs data={data} header={"Why Choose Us"} />
 
-        <FixedBg height={600} Component={<FixedBgComp />} />
+        <FixedBg  height={isMobile ? 900 : 600} Component={<FixedBgComp />} />
 
         <Footer />
     </>

@@ -16,7 +16,7 @@ const PropertyList = () => {
 
         <Banner title={propertyBanner.title} bg={propertyBanner.bg} width={propertyBanner.width} height={propertyBanner.height} marginTop={headerHeight} />
 
-        <div className="py-5">
+        <div className="py-5 Listing">
             <Filters theme="dark" />
         </div>
 

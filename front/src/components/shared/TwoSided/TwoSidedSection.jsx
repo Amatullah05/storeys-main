@@ -9,7 +9,7 @@ const TwoSidedSection = ({ header, description, image, className, height, Compon
                 <div className="row">
                     <div className="col-md-12">
                         <div className={`layout ${className}`}>
-                            <div className="banner">
+                            <div className="banner ">
                                 <img src={image} style={{height: `${height}px` || "100%"}} alt="services-banner" />
                             </div>
                             {

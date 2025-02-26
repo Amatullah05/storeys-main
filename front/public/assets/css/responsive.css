@@ -10,6 +10,7 @@
             .row1,
             .row2 {
                 .item {
+                
                     width: 150px;
                     height: 65px;
                 }
@@ -47,6 +48,7 @@
         line-height: 65px !important;
     }
     .font-lg {
+        /* background-color: aquamarine; */
         font-size: 20px !important;
     }
     .properties {
@@ -227,9 +229,30 @@
             }
         }
     }
+
+
+
+    .counter-fixed-layout {
+        .counter {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            .item {
+                width: 70%;
+                justify-content: start;
+                flex-direction: column;
+    
+            }
+        }
+        .light {
+            color: white !important;
+        }
+    }
 }
 
 
 
 /*------------------------------------------------------------------ */
+
 

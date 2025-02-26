@@ -10,7 +10,7 @@ const Counter = () => {
   return (
     <>
         <div className="counter" ref={ref}>
-            <div className="item">
+            <div className="item ">
                 <h4 className="font-lg font-sans light  medium fs-70">
                     {inView ? (
                         <CountUp end={20} duration={2.5} suffix="+" />
@@ -20,6 +20,7 @@ const Counter = () => {
                 </h4>
                 <h6 className="font-lg font-sans  medium light">Years of combined market experience</h6>
             </div>
+
             <div className="item">
                 <h4 className="font-lg font-sans light  medium fs-70">
                     {inView ? (
@@ -30,6 +31,7 @@ const Counter = () => {
                 </h4>
                 <h6 className="font-lg font-sans  medium light">Unmatched expertise in Off-Plan investments</h6>
             </div>
+
             <div className="item">
                 <h4 className="font-lg font-sans light  medium fs-70">
                     {inView ? (

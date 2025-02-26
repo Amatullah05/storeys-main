@@ -70,13 +70,13 @@ const Filters = ({ theme }) => {
                     <input 
                         type="number" 
                         placeholder="Min price"
-                        className={`font-sm fs-16 price-input ${classes.sm}`}
+                        className={`font-sm fs-16 price-input price-range ${classes.sm} `}
                     />
                     <span className="separator">-</span>
                     <input 
                         type="number" 
                         placeholder="Max price"
-                        className={`font-sm fs-16 price-input ${classes.sm}`}
+                        className={`font-sm fs-16 price-input price-range ${classes.sm}`}
                     />
                 </div>
             </div>

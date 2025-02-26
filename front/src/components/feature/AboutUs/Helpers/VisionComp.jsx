@@ -19,8 +19,7 @@ const VisionComp = () => {
   return (
     <> 
         <div className="content gap-30">
-            <h4 className="font-lg text-left fs-60">Our Vision & Values</h4>
-            {/* <h4  className={`font-lg text-left ${width > 767 ? "w-80 fs-70" : "w-50 fs-36"}`}> Our Vision & Values</h4> */}
+            <h4  className={window.innerWidth > 767 ? ' font-lg text-left' : 'fs-50'}> Our Vision & Values</h4>
 
             <p className="font-sm medium fs-22 text-left">Our vision is to elevate real estate experiences by combining market expertise with a personalized approach. We believe in</p>
 
