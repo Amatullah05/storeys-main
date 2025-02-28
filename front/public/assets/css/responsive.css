@@ -249,7 +249,152 @@
             color: white !important;
         }
     }
+/* ------------------------------------------------------------------- */
+
+.property-inner-card {
+    width: 100%;
+    border-radius: 15px;
+    background: #FFF;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.05);
+    padding: 50px 30px;
+    display: flex;
+    align-items: start;
+    justify-content: center;
+    flex-direction: column;
+    gap: 50px;
+
+        .bottom {
+            width: 100%;
+            display: flex;
+            align-items: start;
+            justify-content: end;
+            /* gap: 40px; */
+            .item {
+                display: flex;
+                align-items: center;
+                flex-direction: column;
+                justify-content: start;
+                /* font-size: 20px; */
+            }
+            .icons {
+                display: grid;
+                align-items: start;
+                justify-content: space-evenly;
+                flex-direction: column;
+                width: 100%;
+                height: 80px;
+                object-fit: cover;
+                grid-template-columns: 1fr 1fr;
+                column-gap: 10px;
+                row-gap: 10px;
+                .icon {
+                    height: 20px;
+                    width: 20px;
+                    object-fit: fill;
+        } 
+    }
 }
+}
+
+.property-content {
+    .layout {
+        display: flex;
+        align-items: start;
+        position: relative;
+        justify-content: center;
+        flex-direction: column-reverse;
+        gap: 10px;
+        /* .content {
+            display: flex;
+            align-items: start;
+            justify-content: center;
+            flex-direction: column;
+            gap: 20px;
+        } */
+        .profile-card-layout {
+            position: relative;
+            /* display: flex;
+            justify-content: end;
+            align-items: stretch; */
+            /* background-color: aquamarine; */
+            /* width: 100%; */
+            height: 100%;
+            .profile-card {
+                /* max-width: 470px; */
+                /* max-width: 100%;
+                border-radius: 15px;
+                border: 0.5px solid rgba(0, 0, 0, 0.50);
+                background: #FFF; */
+                .cs-body {
+                    /* display: flex;
+                    padding: 25px 35px;
+                    align-items: start;
+                    justify-content: center;
+                    flex-direction: column;
+                    gap: 30px; */
+                    .profile {
+                        /* width: 100%;
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-between; */
+                        img {
+                            width: 100px;
+                            height: 100px;
+                            object-fit: cover;
+                            margin-top: -70px;
+                        }
+                    }
+                    /* .contact-btn {
+                        border-radius: 5px;
+                        background: #C5EBFF;
+                        display: flex;
+                        padding: 11px 30px;
+                        justify-content: center;
+                        align-items: center;
+                        gap: 10px;
+                        flex-shrink: 0;
+                        color: #37708E;
+                        font-family: "DM Sans";
+                        font-size: 18px;
+                        font-style: normal;
+                        font-weight: 500;
+                        line-height: normal;
+                        border: none;
+                        cursor: pointer;
+                    } */
+                }
+                /* .cs-footer {
+                    display: flex;
+                    align-items: start;
+                    justify-content: center;
+                    flex-direction: column;
+                    border-top: 0.5px solid rgba(0, 0, 0, 0.50);
+                    padding: 25px 35px;
+                    gap: 10px;
+                } */
+            }
+        }
+    }
+}
+.property-inner-banner {
+    height: 400px;
+    grid-template-columns: 1fr 1fr ;
+}
+
+
+.frame-1 {
+    & .image {
+        & .abs {
+            img {
+                width: 40px;
+                height: 100%;
+            }
+        }
+    }
+}
+}
+
+
 
 
 

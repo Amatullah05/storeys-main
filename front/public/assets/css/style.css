@@ -156,12 +156,21 @@
         
         .fs-42 {
             font-size: 42px !important;
-            line-height: 44px !important;
+            line-height: 42px !important;
+        }
+        .fs-43 {
+            font-size: 43px !important;
+            line-height: 43px !important;
         }
         
         .fs-50 {
             font-size: 50px !important;
             line-height: 50px !important;
+        }
+        .fs-60 {
+            font-size: 60px !important;
+            line-height: 60px !important;
+
         }
         
         .fs-70 {
@@ -322,8 +331,14 @@
         .w-100 {
             width: 100% !important;
         }
+        .w-90{
+            width: 90% !important;
+        }
         .w-80{
             width: 80% !important;
+        }
+        .w-70{
+            width: 70% !important;
         }
         
         .w-60 {
@@ -1408,6 +1423,7 @@
                 }
             }
             .bottom {
+                width: 100%;
                 display: flex;
                 align-items: center;
                 justify-content: start;
@@ -1418,13 +1434,24 @@
                     flex-direction: column;
                     justify-content: center;
                 }
-                .icon {
-                    width: 30px;
+                .icons {
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-evenly;
+                    width: 100%;
                     height: 30px;
                     object-fit: cover;
+
+                    .icon {
+                        height: 40px;
+                        width: 40px;
+                        object-fit: fill;
+                    } 
                 }
             }
         }
+
+
         
         .property-content {
             .layout {

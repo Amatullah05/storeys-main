@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import Banner from "../../shared/Banner/Banner"
 import Footer from "../../shared/Footer/Footer"
 import Header from "../../shared/Header/Header"
@@ -14,13 +14,18 @@ import FaqComp from "./Helpers/FaqComp"
 const Careers = () => {
 
   const [headerHeight, setHeaderHeight] = useState(0)
+  const [isMobile , setIsMobile]= useState(false)
+
+  useEffect(() => {
+    window.innerWidth > 767 ? setIsMobile(false) : setIsMobile(true)
+  }, [])
 
   return (
     <>
         <Header height={setHeaderHeight} />
         <Banner title={careersBanner.title} bg={careersBanner.bg} width={careersBanner.width} height={careersBanner.height} marginTop={headerHeight}/>
         <Frame frame={careersFrame} />
-        <FixedBg height={590} Component={<FixedBgComp />} />
+        <FixedBg height={`${isMobile ? 900 : 590}`} Component={<FixedBgComp />} />
         <Testimonial />
         <Faq Component={FaqComp} />
         <Footer />

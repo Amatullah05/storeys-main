@@ -64,10 +64,10 @@ const Testimonial = () => {
                         </Slider>
                         <div className="controls">
                             <button className="prev-btn" onClick={() => slider.current.slickPrev()}>
-                                <i class="fa-solid fa-chevron-left"></i>
+                                <i className="fa-solid fa-chevron-left"></i>
                             </button>
                             <button className="next-btn" onClick={() => slider.current.slickNext()}>
-                                <i class="fa-solid fa-chevron-right"></i>
+                                <i className="fa-solid fa-chevron-right"></i>
                             </button>
                         </div>
                     </div>

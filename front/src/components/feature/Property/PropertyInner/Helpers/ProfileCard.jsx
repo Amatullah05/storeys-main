@@ -1,5 +1,11 @@
+import { useEffect, useState } from "react"
 
 const ProfileCard = () => {
+    const [ isMobile , setIsMobile] = useState(false)
+
+    useEffect(() => {
+        window.innerWidth > 767 ? setIsMobile(false) : setIsMobile(true)
+    }, [])
   return (
     <>
         <div className="profile-card">
@@ -18,7 +24,7 @@ const ProfileCard = () => {
                 <div className="grid-cs gtc-3 w-100">
                     <button className="contact-btn"><i class="fa-solid fa-lg fa-envelope"></i> Email</button>
                     <button className="contact-btn"><i class="fa-solid fa-lg fa-phone"></i> Call</button>
-                    <button className="contact-btn"><i class="fa-brands fa-xl fa-whatsapp"></i></button>
+                    <button className={ `${isMobile ? "py-4" : 'auto'} contact-btn`}><i class="fa-brands fa-xl fa-whatsapp"></i></button>
                 </div>
             </div>
             <div className="cs-footer">

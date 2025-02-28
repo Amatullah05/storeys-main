@@ -20,7 +20,7 @@ const Landing = () => {
   return (
     <>
         <Header />
-        <Banner title={title} description={description} isFilter={isFilter} bg={bg} width={width} height={height} />
+        <Banner title={title} description={description} isFilter={isFilter} bg={bg} width={width} height={height}/>
         <DevSection />
         <About Component={AboutComp} />
         <Properties />

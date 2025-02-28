@@ -1,50 +1,106 @@
+// import React, { useState } from 'react';
+// import Carousel from './Slider';
+
+
+// const Overlay = ({ remainingCount, onShowCarousel }) => {
+//     return (
+//         <div className="overlay">
+//             <h4 className="font-sm light bold">See All Photos</h4>
+//             <button className="font-sm dark fs-20 medium" onClick={onShowCarousel}>+{remainingCount}</button>
+//         </div>
+//     )
+// }
+
+// const Banner = ({ banner, marginTop }) => {
+
+//     const [showCarousel, setShowCarousel] = useState(false);
+
+//     const handleShowCarousel = () => {
+//         setShowCarousel(true);
+//     };
+
+//     const displayedImages = banner.slice(0, 8);
+//     const remainingCount = banner.length - displayedImages.length;
+
+
+
+//   return (
+//     <> 
+//             {showCarousel ? (
+//                 <section className='property-inner-slider' style={{marginTop: `${marginTop}px` || "0px"}}>
+//                     <Carousel banner={banner} />
+//                 </section>
+//             ) : (
+//                 <section className="property-inner-banner" style={{marginTop: `${marginTop}px` || "0px"}}>
+//                     {displayedImages.map((item, index) => (
+//                         <div className="item" key={item.uniqueid}>
+//                             <img src={item.s3Url} alt={item.s3Key} />
+//                             {index === displayedImages.length - 1 && remainingCount > 0 && (
+//                                 <Overlay remainingCount={remainingCount} onShowCarousel={handleShowCarousel} />
+//                             )}
+//                         </div>
+//                     ))}
+//                 </section>
+//             )}
+            
+//     </>
+//   )
+// }
+
+// export default Banner
+
+
+
 import React, { useState } from 'react';
-import Carousel from './Slider';
+// import 'bootstrap/dist/css/bootstrap.min.css';
+import { Modal } from 'react-bootstrap';
 
-
-const Overlay = ({ remainingCount, onShowCarousel }) => {
+const Overlay = ({ remainingCount, onShowLightbox }) => {
     return (
         <div className="overlay">
             <h4 className="font-sm light bold">See All Photos</h4>
-            <button className="font-sm dark fs-20 medium" onClick={onShowCarousel}>+{remainingCount}</button>
+            <button className="font-sm dark fs-20 medium" onClick={onShowLightbox}>+{remainingCount}</button>
         </div>
-    )
-}
+    );
+};
 
 const Banner = ({ banner, marginTop }) => {
+    const [lightboxOpen, setLightboxOpen] = useState(false);
+    const [photoIndex, setPhotoIndex] = useState(0);
 
-    const [showCarousel, setShowCarousel] = useState(false);
-
-    const handleShowCarousel = () => {
-        setShowCarousel(true);
+    const handleShowLightbox = (index) => {
+        setPhotoIndex(index);
+        setLightboxOpen(true);
     };
 
-    const displayedImages = banner.slice(0, 8);
+    const displayedImages = window.innerWidth > 767 ? banner.slice(0, 8) : banner.slice(0, 4);
     const remainingCount = banner.length - displayedImages.length;
+    const imageUrls = banner.map(item => item.s3Url);
 
+    return (
+        <> 
+            <section className="property-inner-banner overflow-x-hidden" style={{ marginTop: `${marginTop}px` || "0px" }}>
+                {displayedImages.map((item, index) => (
+                    <div className="item" key={item.uniqueid} onClick={() => handleShowLightbox(index)}>
+                        <img src={item.s3Url} alt={item.s3Key} className="img-fluid" />
+                        {index === displayedImages.length - 1 && remainingCount > 0 && (
+                            <Overlay remainingCount={remainingCount} onShowLightbox={() => handleShowLightbox(index)} />
+                        )}
+                    </div>
+                ))}
+            </section>
+            <Modal show={lightboxOpen} onHide={() => setLightboxOpen(false)} centered dialogClassName="mt-5">
+                <Modal.Header closeButton />
+                <Modal.Body className="text-center overflow-x-hidden">
+                    <img src={imageUrls[photoIndex]} alt="Lightbox" className="img-fluid rounded" />
+                    <div className="d-flex justify-content-between mt-3">
+                        <button className="btn btn-secondary" onClick={() => setPhotoIndex((photoIndex + imageUrls.length - 1) % imageUrls.length)}>Previous</button>
+                        <button className="btn btn-secondary" onClick={() => setPhotoIndex((photoIndex + 1) % imageUrls.length)}>Next</button>
+                    </div>
+                </Modal.Body>
+            </Modal>
+        </>
+    );
+};
 
-
-  return (
-    <> 
-            {showCarousel ? (
-                <section className='property-inner-slider' style={{marginTop: `${marginTop}px` || "0px"}}>
-                    <Carousel banner={banner} />
-                </section>
-            ) : (
-                <section className="property-inner-banner" style={{marginTop: `${marginTop}px` || "0px"}}>
-                    {displayedImages.map((item, index) => (
-                        <div className="item" key={item.uniqueid}>
-                            <img src={item.s3Url} alt={item.s3Key} />
-                            {index === displayedImages.length - 1 && remainingCount > 0 && (
-                                <Overlay remainingCount={remainingCount} onShowCarousel={handleShowCarousel} />
-                            )}
-                        </div>
-                    ))}
-                </section>
-            )}
-            
-    </>
-  )
-}
-
-export default Banner
+export default Banner;

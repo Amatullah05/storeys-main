@@ -28,7 +28,7 @@ const FixedBgComp = () => {
     </>
   )
 }
-export default FixedBgComp
+export default FixedBgComp;
 
 
 
